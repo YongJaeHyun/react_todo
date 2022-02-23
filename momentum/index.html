@@ -8,17 +8,23 @@
     <title>Momentum</title>
   </head>
   <body>
-    <div>
-      <h1 id="clock"></h1>
+    <span>
       <button id="bgbtn">이미지 바꾸기</button>
       <button id="logoutbtn" class="hidden">로그아웃</button>
-    </div>
-    <form id="login-form" class="hidden">
-      <input type="text" required maxlength="15" />
-      <br />
-      <button id="loginbtn">로그인</button>
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
+    </span>
+    <section class="center">
+      <div>
+        <h3 id="clock"></h3>
+      </div>
+      <div>
+        <form id="login-form" class="hidden">
+          <input type="text" required maxlength="15" />
+        </form>
+      </div>
+      <div>
+        <span id="greeting" class="hidden"></span>
+      </div>
+    </section>
     <script src="js/clock.js"></script>
     <script src="js/greeting.js"></script>
     <script src="js/background.js"></script>

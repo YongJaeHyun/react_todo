@@ -1,11 +1,36 @@
-body {
+body,
+html {
   height: 100%;
-  background-size: cover;
-  color: white;
-  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
+
+body {
+  color: white;
+  background-size: cover;
+  background-position: center center;
   animation: fadeIn 1s ease-in-out forwards;
   animation-delay: 0.1s;
+}
+
+input {
+  background: none;
+  appearance: none;
+  border: 0;
+  font-size: 22px;
+  color: white;
+  border-bottom: 2px solid white;
+  opacity: 0.9;
+}
+input::placeholder {
+  color: white;
+}
+input:focus,
+input:active {
+  outline: none;
 }
 
 @keyframes fadeIn {
@@ -21,28 +46,26 @@ body {
   display: none;
 }
 
-div {
-  text-align: center;
-  vertical-align: middle;
-}
-
-div button {
-  display: block;
-  float: right;
-}
-
-#login-form {
-  text-align: center;
-  margin: auto;
-  line-height: 120%;
+.center {
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
 }
 
 #clock {
-  display: inline;
-  padding-left: 168px;
-  text-align: center;
+  font-size: 6em;
+  margin: 20px;
 }
 
 #greeting {
-  text-align: center;
+  font-size: 35px;
+}
+
+button {
+  display: inline;
+  margin: 5px;
+  padding: 3px;
+  float: right;
 }
