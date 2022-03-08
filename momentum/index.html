@@ -8,7 +8,7 @@
     <title>Momentum</title>
   </head>
   <body>
-    <span>
+    <span id="afterloginbtn">
       <button id="bgbtn">이미지 바꾸기</button>
       <button id="logoutbtn" class="hidden">로그아웃</button>
     </span>
@@ -24,9 +24,14 @@
       <div>
         <span id="greeting" class="hidden"></span>
       </div>
+      <form id="todo-form">
+        <input type="text" placeholder="- Write your To Do list! -" required />
+      </form>
+      <ul id="todo-list"></ul>
     </section>
     <script src="js/clock.js"></script>
     <script src="js/greeting.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/todolist.js"></script>
   </body>
 </html>

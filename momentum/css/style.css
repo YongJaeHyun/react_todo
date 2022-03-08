@@ -20,13 +20,14 @@ input {
   background: none;
   appearance: none;
   border: 0;
-  font-size: 22px;
+  font-size: 30px;
   color: white;
   border-bottom: 2px solid white;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 input::placeholder {
   color: white;
+  text-align: center;
 }
 input:focus,
 input:active {
@@ -40,6 +41,30 @@ input:active {
   to {
     opacity: 1;
   }
+}
+ul {
+  font-size: 30px;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+li {
+  margin: 5px;
+}
+
+ul button {
+  display: inline;
+  margin-top: 5px;
+  margin-left: 20px;
+  padding: 3px;
+  float: right;
+}
+
+button {
+  cursor: pointer;
 }
 
 .hidden {
@@ -60,10 +85,18 @@ input:active {
 }
 
 #greeting {
-  font-size: 35px;
+  font-size: 45px;
 }
 
-button {
+#login-form ::placeholder {
+  font-size: 37px;
+}
+
+#todo-form {
+  margin-top: 125px;
+}
+
+#afterloginbtn {
   display: inline;
   margin: 5px;
   padding: 3px;
