@@ -12,6 +12,14 @@ function deleteToDos(e) {
   saveToDos();
 }
 
+function successToDos(e) {
+  const text = e.target;
+  let textDecoration = text.style.textDecoration;
+  const isEmpty = textDecoration === "";
+  console.log(isEmpty);
+  text.style.textDecoration = isEmpty ? "line-through" : "";
+}
+
 function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
@@ -20,16 +28,17 @@ function paintToDo(newToDo) {
   const li = document.createElement("li");
   li.id = newToDo.id;
   const span = document.createElement("span");
-  span.innerHTML = newToDo.text;
+  span.innerText = newToDo.text;
   const button = document.createElement("button");
-  button.innerHTML = "❌";
+  button.innerText = "❌";
   button.addEventListener("click", deleteToDos);
+  span.addEventListener("click", successToDos);
   li.appendChild(span);
   li.appendChild(button);
   todoList.appendChild(li);
 }
 
-function handleTodoList(e) {
+function handleToDoList(e) {
   e.preventDefault();
   const newToDo = todoInput.value;
   todoInput.value = "";
@@ -42,7 +51,7 @@ function handleTodoList(e) {
   saveToDos();
 }
 
-toDoForm.addEventListener("submit", handleTodoList);
+toDoForm.addEventListener("submit", handleToDoList);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 

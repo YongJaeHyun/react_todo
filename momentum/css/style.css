@@ -88,7 +88,8 @@ button {
 #weather {
   font-size: 2em;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 90px;
+  line-height: 20%;
 }
 
 #weathericon {
@@ -99,7 +100,7 @@ button {
 }
 
 #greeting {
-  font-size: 48px;
+  font-size: 60px;
 }
 
 #login-form ::placeholder {
@@ -107,11 +108,10 @@ button {
 }
 
 #todo-form {
-  margin-top: 95px;
+  margin-top: 90px;
 }
 
 #afterloginbtn {
-  display: inline;
   margin: 5px;
   padding: 3px;
   float: right;
