@@ -79,6 +79,19 @@ button {
   display: flex;
 }
 
+.no-drag {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.line-through {
+  opacity: 0.8;
+  text-decoration: line-through;
+}
+
 #clock {
   font-size: 7em;
   margin: 0;

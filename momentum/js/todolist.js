@@ -13,22 +13,42 @@ function deleteToDos(e) {
 }
 
 function successToDos(e) {
-  const text = e.target;
-  let textDecoration = text.style.textDecoration;
-  const isEmpty = textDecoration === "";
-  console.log(isEmpty);
-  text.style.textDecoration = isEmpty ? "line-through" : "";
+  const liText = e.target;
+  toDoObj = localStorage.getItem(TODOS_KEY);
+  newToDoObj = JSON.parse(toDoObj);
+  liText.classList.toggle("line-through");
+  for (toDoIdx in newToDoObj) {
+    if (newToDoObj[toDoIdx].id === parseInt(e.target.parentElement.id)) {
+      newToDoObj[toDoIdx].class.class = liText.classList.value;
+      Object.assign(toDos, newToDoObj);
+      saveToDos();
+    }
+  }
 }
 
 function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function paintToDo(newToDo) {
+function paintToDo(newToDoObj) {
   const li = document.createElement("li");
-  li.id = newToDo.id;
+  li.id = newToDoObj.id;
   const span = document.createElement("span");
-  span.innerText = newToDo.text;
+  span.innerText = newToDoObj.text;
+  const objClass = newToDoObj.class.class;
+  if (!objClass) {
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(newToDoObj.id));
+    saveToDos();
+  }
+  const classIdx = objClass.indexOf(" ");
+  const no_drag = objClass.substr(0, classIdx);
+  const line_through = objClass.substr(classIdx + 1);
+  if (no_drag) {
+    span.classList.add(no_drag);
+  }
+  if (line_through) {
+    span.classList.add(line_through);
+  }
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDos);
@@ -45,6 +65,9 @@ function handleToDoList(e) {
   const newToDoObj = {
     text: newToDo,
     id: Date.now(),
+    class: {
+      class: "no-drag",
+    },
   };
   toDos.push(newToDoObj);
   paintToDo(newToDoObj);
@@ -57,6 +80,7 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
+  console.log(parsedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 }
