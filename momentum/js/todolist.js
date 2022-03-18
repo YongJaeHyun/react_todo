@@ -35,11 +35,11 @@ function paintToDo(newToDoObj) {
   li.id = newToDoObj.id;
   const span = document.createElement("span");
   span.innerText = newToDoObj.text;
-}
-const objClass = newToDoObj.class.class ?? " ";
-if (!objClass) {
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(newToDoObj.id));
-  saveToDos();
+  const objClass = newToDoObj.class.class ?? " ";
+  if (!objClass) {
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(newToDoObj.id));
+    saveToDos();
+  }
   const classIdx = objClass.indexOf(" ");
   const no_drag = objClass.substr(0, classIdx);
   const line_through = objClass.substr(classIdx + 1);
