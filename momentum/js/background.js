@@ -1,4 +1,5 @@
 const bgButton = document.querySelector("#bgbtn");
+const BACKGROUND = "background";
 
 const bgImage = [
   "0.jpg",
@@ -17,11 +18,20 @@ const chosenImg = Math.floor(Math.random() * bgImage.length);
 
 const bgMain = document.body.style;
 
-function changeBgImage() {
-  const chosenImg = Math.floor(Math.random() * bgImage.length);
-  const bgMain = document.body.style;
-  bgMain.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("img/${chosenImg}.jpg")`;
+function setBgImage(img) {
+  bgMain.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("img/${img}.jpg")`;
 }
 
-changeBgImage();
+function changeBgImage() {
+  const chosenImg = Math.floor(Math.random() * bgImage.length);
+  setBgImage(chosenImg);
+  localStorage.setItem(BACKGROUND, chosenImg);
+}
+
+const savedImg = localStorage.getItem(BACKGROUND);
+if (savedImg) {
+  setBgImage(savedImg);
+} else {
+  changeBgImage();
+}
 bgButton.addEventListener("click", changeBgImage);
