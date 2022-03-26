@@ -56,11 +56,12 @@ li {
   margin: 5px;
 }
 
-ul button {
+.liBtn {
   display: inline;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-left: 20px;
-  padding: 3px;
+  padding: 0;
+  font-size: 25px;
   float: right;
 }
 
@@ -87,6 +88,10 @@ button {
   user-select: none;
 }
 
+.search-bar {
+  width: 600px;
+}
+
 .line-through {
   opacity: 0.8;
   text-decoration: line-through;
@@ -94,14 +99,15 @@ button {
 
 #clock {
   font-size: 7em;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 10px;
 }
 
 #weather {
-  font-size: 2em;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 90px;
+  margin-bottom: 35px;
   line-height: 20%;
 }
 
@@ -110,10 +116,12 @@ button {
   height: 80px;
   display: block;
   margin: auto;
+  margin-top: 8px;
 }
 
 #greeting {
-  font-size: 60px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 #login-form ::placeholder {
@@ -121,7 +129,8 @@ button {
 }
 
 #todo-form {
-  margin-top: 90px;
+  margin-top: 37px;
+  margin-bottom: 55px;
 }
 
 #afterloginbtn {

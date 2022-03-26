@@ -51,6 +51,8 @@ function paintToDo(newToDoObj) {
   }
   const button = document.createElement("button");
   button.innerText = "❌";
+  button.type = "button";
+  button.classList = "liBtn btn btn-outline-danger";
   button.addEventListener("click", deleteToDos);
   span.addEventListener("click", successToDos);
   li.appendChild(span);
