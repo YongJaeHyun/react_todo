@@ -40,14 +40,18 @@ function paintToDo(newToDoObj) {
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(newToDoObj.id));
     saveToDos();
   }
+
+  function addClass(className){
+    span.classList.add(className)
+  }
   const classIdx = objClass.indexOf(" ");
   const no_drag = objClass.substr(0, classIdx);
   const line_through = objClass.substr(classIdx + 1);
   if (no_drag) {
-    span.classList.add(no_drag);
+    addClass(no_drag);
   }
   if (line_through) {
-    span.classList.add(line_through);
+    addClass(line_through)
   }
   const button = document.createElement("button");
   button.innerText = "❌";
@@ -82,7 +86,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
-  console.log(parsedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 }
