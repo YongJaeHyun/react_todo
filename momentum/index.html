@@ -14,22 +14,34 @@
     <title>Momentum</title>
   </head>
   <body>
-    <div id="afterloginbtn">
-      <span id="greeting" class="hidden"></span>
-      <button id="bgbtn">이미지 바꾸기</button>
-      <button id="logoutbtn" class="hidden">로그아웃</button>
+    <div id="top">
+      <div id="after-login-btn">
+        <form id="login-form">
+          <input id="login-input" type="text" required maxlength="15" />
+        </form>
+        <span id="greeting" class="hidden"></span>
+        <button id="logout-btn" class="hidden">로그아웃</button>
+      </div>
+      <div class="center">
+        <h3 id="clock"></h3>
+      </div>
     </div>
     <section class="center">
       <div>
-        <h3 id="clock"></h3>
         <div id="weather" class="center">
           <span id="position"></span>
-          <img id="weathericon" />
-          <span id="weathertext"></span>
+          <img id="weather-icon" />
+          <span id="weather-text"></span>
         </div>
-        <form class="mx-auto search-bar input-group mb-3">
+        <form
+          action="https://www.google.com/search"
+          class="mx-auto search-bar input-group mb-3"
+          method="GET"
+        >
           <input
             type="text"
+            style="font-size: 20px"
+            name="q"
             class="form-control rounded-pill"
             placeholder="Google 검색 또는 URL 입력"
             aria-label="Recipient's username"
@@ -37,15 +49,17 @@
           />
         </form>
       </div>
-
-      <div>
-        <form id="login-form" class="hidden">
-          <input type="text" required maxlength="15" />
+      <div id="div-todo-form">
+        <button id="prev-background-btn"></button>
+        <form id="todo-form">
+          <input
+            type="text"
+            placeholder="- Write your To Do list! -"
+            required
+          />
         </form>
+        <button id="change-background-btn"></button>
       </div>
-      <form id="todo-form">
-        <input type="text" placeholder="- Write your To Do list! -" required />
-      </form>
       <ul id="todo-list"></ul>
     </section>
     <script src="js/clock.js"></script>

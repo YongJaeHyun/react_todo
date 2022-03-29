@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  color: white;
+  color: #f8f9fa;
   background-size: cover;
   background-position: center center;
   animation: fadeIn 1s ease-in-out forwards;
@@ -56,17 +56,21 @@ li {
   margin: 5px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .liBtn {
   display: inline;
   margin-top: 3px;
   margin-left: 20px;
-  padding: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 2px;
   font-size: 25px;
   float: right;
-}
-
-button {
-  cursor: pointer;
 }
 
 .hidden {
@@ -104,6 +108,10 @@ button {
   margin-bottom: 10px;
 }
 
+#top {
+  text-align: center;
+}
+
 #weather {
   font-size: 30px;
   text-align: center;
@@ -111,7 +119,7 @@ button {
   line-height: 20%;
 }
 
-#weathericon {
+#weather-icon {
   width: 80px;
   height: 80px;
   display: block;
@@ -120,21 +128,89 @@ button {
 }
 
 #greeting {
-  font-size: 25px;
+  font-size: 28px;
   font-weight: bold;
+  color: #f7f8f9;
+}
+
+#login-input {
+  width: 300px;
+  font-size: 20px;
+}
+
+#login-form {
+  display: inline;
 }
 
 #login-form ::placeholder {
-  font-size: 37px;
+  font-size: 20px;
+}
+
+#div-todo-form {
+  margin-top: 30px;
 }
 
 #todo-form {
-  margin-top: 37px;
-  margin-bottom: 55px;
+  display: inline;
 }
 
-#afterloginbtn {
-  margin: 5px;
+#todo-list {
+  margin-top: 55px;
+}
+
+#after-login-btn {
+  margin: 5px 8px 0 5px;
   padding: 3px;
+  vertical-align: middle;
   float: right;
+}
+
+#prev-background-btn,
+#change-background-btn {
+  vertical-align: middle;
+  position: relative;
+  display: inline;
+}
+
+#prev-background-btn::after,
+#change-background-btn::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-top: 5px solid #bdc8d1;
+  border-right: 5px solid #bdc8d1;
+}
+
+#prev-background-btn {
+  margin-top: 50px;
+  margin-left: 40px;
+  transform: rotate(225deg);
+  float: left;
+}
+
+#prev-background-btn:hover {
+  opacity: 0.6;
+}
+
+#change-background-btn {
+  margin-bottom: 50px;
+  margin-right: 40px;
+  transform: rotate(45deg);
+  float: right;
+}
+
+#change-background-btn:hover {
+  opacity: 0.6;
+}
+
+#logout-btn {
+  margin-bottom: 12px;
+  margin-left: 8px;
+  padding: 4px 8px 4px 8px;
+}
+#logout-btn:hover {
+  background-color: #dc3545;
 }

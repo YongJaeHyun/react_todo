@@ -1,4 +1,4 @@
-const bgButton = document.querySelector("#bgbtn");
+const bgButton = document.querySelector("#change-background-btn");
 const BACKGROUND = "background";
 
 const bgImage = [

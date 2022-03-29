@@ -1,6 +1,6 @@
 const position = document.getElementById("position");
-const weatherText = document.getElementById("weathertext");
-const weatherIcon = document.getElementById("weathericon");
+const weatherText = document.getElementById("weather-text");
+const weatherIcon = document.getElementById("weather-icon");
 
 navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
 

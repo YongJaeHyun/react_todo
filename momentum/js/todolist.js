@@ -1,5 +1,5 @@
 const toDoForm = document.querySelector("#todo-form");
-const todoInput = document.querySelector("#todo-form input");
+const todoInput = toDoForm.querySelector("input");
 const todoList = document.querySelector("#todo-list");
 
 let toDos = [];
@@ -41,8 +41,8 @@ function paintToDo(newToDoObj) {
     saveToDos();
   }
 
-  function addClass(className){
-    span.classList.add(className)
+  function addClass(className) {
+    span.classList.add(className);
   }
   const classIdx = objClass.indexOf(" ");
   const no_drag = objClass.substr(0, classIdx);
@@ -51,7 +51,7 @@ function paintToDo(newToDoObj) {
     addClass(no_drag);
   }
   if (line_through) {
-    addClass(line_through)
+    addClass(line_through);
   }
   const button = document.createElement("button");
   button.innerText = "❌";
