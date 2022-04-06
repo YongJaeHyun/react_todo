@@ -4,6 +4,8 @@ const todoList = document.querySelector("#todo-list");
 
 let toDos = [];
 const TODOS_KEY = "todos";
+const NO_DRAG_CLASSNAME = "no-drag";
+const LINE_THROUGH_CLASSNAME = "line-through";
 
 function deleteToDos(e) {
   const li = e.target.parentElement;
@@ -14,12 +16,12 @@ function deleteToDos(e) {
 
 function successToDos(e) {
   const liText = e.target;
-  toDoObj = localStorage.getItem(TODOS_KEY);
-  newToDoObj = JSON.parse(toDoObj);
-  liText.classList.toggle("line-through");
+  const toDoObj = localStorage.getItem(TODOS_KEY);
+  const newToDoObj = JSON.parse(toDoObj);
+  liText.classList.toggle(LINE_THROUGH_CLASSNAME);
   for (toDoIdx in newToDoObj) {
-    if (newToDoObj[toDoIdx].id === parseInt(e.target.parentElement.id)) {
-      newToDoObj[toDoIdx].class.class = liText.classList.value;
+    if (newToDoObj[toDoIdx].id === parseInt(liText.parentElement.id)) {
+      newToDoObj[toDoIdx].class.classes = liText.classList.value;
       Object.assign(toDos, newToDoObj);
       saveToDos();
     }
@@ -35,24 +37,23 @@ function paintToDo(newToDoObj) {
   li.id = newToDoObj.id;
   const span = document.createElement("span");
   span.innerText = newToDoObj.text;
-  const objClass = newToDoObj.class.class ?? " ";
-  if (!objClass) {
-    toDos = toDos.filter((toDo) => toDo.id !== parseInt(newToDoObj.id));
-    saveToDos();
-  }
+  const classes = newToDoObj.class.classes ?? "";
+  const classIdx = classes.indexOf(" ");
+
+  const noDrag = classes.substr(0, classIdx);
+  const lineThrough = classes.substr(classIdx + 1);
 
   function addClass(className) {
     span.classList.add(className);
   }
-  const classIdx = objClass.indexOf(" ");
-  const no_drag = objClass.substr(0, classIdx);
-  const line_through = objClass.substr(classIdx + 1);
-  if (no_drag) {
-    addClass(no_drag);
+
+  if (noDrag) {
+    addClass(noDrag);
   }
-  if (line_through) {
-    addClass(line_through);
+  if (lineThrough) {
+    addClass(lineThrough);
   }
+
   const button = document.createElement("button");
   button.innerText = "❌";
   button.type = "button";
@@ -72,7 +73,7 @@ function handleToDoList(e) {
     text: newToDo,
     id: Date.now(),
     class: {
-      class: "no-drag",
+      classes: NO_DRAG_CLASSNAME,
     },
   };
   toDos.push(newToDoObj);

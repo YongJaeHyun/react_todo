@@ -101,6 +101,10 @@ button {
   text-decoration: line-through;
 }
 
+.form-control {
+  border-color: #f7f8f9;
+}
+
 #clock {
   font-size: 7em;
   font-weight: bold;
@@ -152,6 +156,10 @@ button {
 
 #todo-form {
   display: inline;
+}
+
+#todo-form-input {
+  width: 400px;
 }
 
 #todo-list {
