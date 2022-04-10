@@ -15,6 +15,11 @@
   </head>
   <body>
     <div id="top">
+      <div id="weather">
+        <span id="position"></span>
+        <span id="weather-text"></span>
+        <img id="weather-icon" />
+      </div>
       <div id="after-login-btn">
         <form id="login-form">
           <input id="login-input" type="text" required maxlength="15" />
@@ -28,11 +33,6 @@
     </div>
     <section class="center">
       <div>
-        <div id="weather" class="center">
-          <span id="position"></span>
-          <img id="weather-icon" />
-          <span id="weather-text"></span>
-        </div>
         <form
           action="https://www.google.com/search"
           class="mx-auto search-bar input-group mb-3"

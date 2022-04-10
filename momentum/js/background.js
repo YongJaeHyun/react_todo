@@ -1,8 +1,8 @@
 const changeBgButton = document.querySelector("#change-background-btn");
-const prevBgButton = document.querySelector("#prev-background-btn")
+const prevBgButton = document.querySelector("#prev-background-btn");
 const BACKGROUND = "background";
 
-let prevBgImage = []
+let prevBgImage = [];
 const bgImage = [
   "0.jpg",
   "1.jpg",
@@ -25,31 +25,30 @@ function setBgImage(img) {
 }
 
 function changeBgImage(e) {
-  e.preventDefault()
+  e.preventDefault();
+  const savedImg = localStorage.getItem(BACKGROUND);
+  prevBgImage.push(savedImg);
   const changedImg = Math.floor(Math.random() * bgImage.length);
   setBgImage(changedImg);
-  prevBgImage.push(changedImg)
-  console.log(prevBgImage)
   localStorage.setItem(BACKGROUND, changedImg);
 }
 
 function backBgImage(e) {
-  e.preventDefault()
-  const isSame = prevBgImage == prevBgImage.slice(0,-1)
-  const prevBgImage2 = isSame ? prevBgImage : prevBgImage.slice(0,-1)
-  const changedImg = prevBgImage2.pop()
-  setBgImage(changedImg)
-  console.log(prevBgImage2)
-  localStorage.setItem(BACKGROUND, changedImg)
+  e.preventDefault();
+  if (prevBgImage.length === 0) {
+    alert("처음 배경입니다!");
+  } else {
+    let changedImg = prevBgImage.pop();
+    setBgImage(changedImg);
+    localStorage.setItem(BACKGROUND, changedImg);
+  }
 }
 
 const savedImg = localStorage.getItem(BACKGROUND);
 if (savedImg) {
   setBgImage(savedImg);
-  prevBgImage.push(savedImg)
-  console.log(prevBgImage)
 } else {
   changeBgImage();
 }
 changeBgButton.addEventListener("click", changeBgImage);
-prevBgButton.addEventListener("click", backBgImage)
+prevBgButton.addEventListener("click", backBgImage);

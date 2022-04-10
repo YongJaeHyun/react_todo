@@ -15,7 +15,7 @@ function successCallBack(location) {
     .then((data) => {
       position.innerText = `${data.sys.country}, ${
         data.name
-      } is now... ${data.main.temp.toFixed([1])}℃`;
+      } : ${data.main.temp.toFixed([1])}℃`;
       weatherIcon.src =
         "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
       weatherText.innerText = `${data.weather[0].main}`;
