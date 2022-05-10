@@ -21,7 +21,7 @@ const chosenImg = Math.floor(Math.random() * bgImage.length);
 const bgMain = document.body.style;
 
 function setBgImage(img) {
-  bgMain.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("img/${img}.jpg")`;
+  bgMain.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("img/background/${img}.jpg")`;
 }
 
 function changeBgImage(e) {
@@ -33,8 +33,7 @@ function changeBgImage(e) {
   localStorage.setItem(BACKGROUND, changedImg);
 }
 
-function backBgImage(e) {
-  e.preventDefault();
+function backBgImage() {
   if (prevBgImage.length === 0) {
     alert("처음 배경입니다!");
   } else {
