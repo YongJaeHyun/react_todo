@@ -16,7 +16,7 @@ const UserInput = ({ value, setValue, addToDo }) => {
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="오늘의 할 일을 적어주세요."
+          placeholder="오늘의 할 일을 적어주세요!"
           autoComplete="off"
           minLength={2}
           maxLength={30}

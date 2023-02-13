@@ -16,9 +16,9 @@ function App() {
   };
 
   const deleteToDo = (id) => {
-    const deletedToDo = toDos.filter((todo) => todo.id !== id);
-    setToDos(deletedToDo);
-    localStorage.setItem("toDos", JSON.stringify(deletedToDo));
+    const filteredToDo = toDos.filter((todo) => todo.id !== id);
+    setToDos(filteredToDo);
+    localStorage.setItem("toDos", JSON.stringify(filteredToDo));
   };
 
   useEffect(() => {
