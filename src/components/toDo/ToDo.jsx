@@ -1,7 +1,7 @@
 import ToDoItem from "../toDoItem/ToDoItem";
 import "./ToDo.css";
 
-const ToDo = ({ toDos, deleteToDo, doneToDo }) => {
+const ToDo = ({ toDos, deleteToDo, doneToDo, editToDo }) => {
   return (
     <section id="toDo" className="box">
       <div>
@@ -14,6 +14,7 @@ const ToDo = ({ toDos, deleteToDo, doneToDo }) => {
               done={toDo.done}
               deleteToDo={deleteToDo}
               doneToDo={doneToDo}
+              editToDo={editToDo}
             />
           ))}
         </ul>

@@ -10,14 +10,12 @@ function App() {
   const [value, setValue] = useState("");
 
   const doneToDo = (id) => {
-    const newToDos = toDos.map((obj)=>{
-      if(obj.id === id) {
-        obj.done 
-          ? obj['done'] = false
-          : obj['done'] = true
+    const newToDos = toDos.map((obj) => {
+      if (obj.id === id) {
+        obj.done ? (obj["done"] = false) : (obj["done"] = true);
       }
-      return obj
-    })
+      return obj;
+    });
     setToDos(newToDos);
     localStorage.setItem("toDos", JSON.stringify(newToDos));
   };
@@ -34,6 +32,17 @@ function App() {
     localStorage.setItem("toDos", JSON.stringify(filteredToDo));
   };
 
+  const editToDo = (id, content) => {
+    const newToDos = toDos.map((obj) => {
+      if (obj.id === id) {
+        obj["content"] = content;
+      }
+      return obj;
+    });
+    setToDos(newToDos);
+    localStorage.setItem("toDos", JSON.stringify(newToDos));
+  };
+
   useEffect(() => {
     const storedToDos = JSON.parse(localStorage.getItem("toDos")) || [];
     setToDos(storedToDos);
@@ -45,7 +54,12 @@ function App() {
       {toDos.length === 0 ? (
         <EmptyToDos />
       ) : (
-        <ToDo toDos={toDos} deleteToDo={deleteToDo} doneToDo={doneToDo}/>
+        <ToDo
+          toDos={toDos}
+          deleteToDo={deleteToDo}
+          doneToDo={doneToDo}
+          editToDo={editToDo}
+        />
       )}
       <UserInput value={value} setValue={setValue} addToDo={addToDo} />
     </main>
