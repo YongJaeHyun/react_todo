@@ -4,16 +4,15 @@ import "./ToDoItem.css";
 const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(content);
+
+  const editCurrentToDo = (e) => {
+    e.preventDefault();
+    editToDo(id, value);
+  };
+
   return (
     <li id="toDoBox">
-      <form
-        id="toDoForm"
-        action="submit"
-        onSubmit={(e) => {
-          e.preventDefault();
-          editToDo(id, value);
-        }}
-      >
+      <form id="toDoForm" action="submit" onSubmit={editCurrentToDo}>
         <div id="contentBox">
           <input
             type="text"
@@ -29,8 +28,7 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
             id="edit"
             onSubmit={(e) => {
               if (isEdit) {
-                e.preventDefault();
-                editToDo(id, value);
+                editCurrentToDo(e);
               }
             }}
             onClick={() => (!done ? setIsEdit((prev) => !prev) : undefined)}

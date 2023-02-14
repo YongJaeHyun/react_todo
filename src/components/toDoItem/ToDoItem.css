@@ -15,12 +15,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-wrap: normal;
 }
 
 #content {
   width: 250px;
   font-weight: 400;
   margin-left: 10px;
+  overflow-wrap: normal;
 }
 
 #buttonBox {
