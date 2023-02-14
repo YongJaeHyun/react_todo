@@ -9,6 +9,19 @@ function App() {
   const [toDos, setToDos] = useState([]);
   const [value, setValue] = useState("");
 
+  const doneToDo = (id) => {
+    const newToDos = toDos.map((obj)=>{
+      if(obj.id === id) {
+        obj.done 
+          ? obj['done'] = false
+          : obj['done'] = true
+      }
+      return obj
+    })
+    setToDos(newToDos);
+    localStorage.setItem("toDos", JSON.stringify(newToDos));
+  };
+
   const addToDo = (value) => {
     const newToDos = [...toDos, { id: Date.now(), content: value }];
     setToDos(newToDos);
@@ -32,7 +45,7 @@ function App() {
       {toDos.length === 0 ? (
         <EmptyToDos />
       ) : (
-        <ToDo toDos={toDos} deleteToDo={deleteToDo} />
+        <ToDo toDos={toDos} deleteToDo={deleteToDo} doneToDo={doneToDo}/>
       )}
       <UserInput value={value} setValue={setValue} addToDo={addToDo} />
     </main>
