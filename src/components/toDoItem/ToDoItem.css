@@ -29,6 +29,13 @@
   align-items: center;
 }
 
+#toDoForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 #edit > span {
   color: #0097e6;
 }
@@ -45,13 +52,6 @@
   opacity: 0.3;
   text-decoration: line-through;
   background-color: transparent;
-}
-
-form {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 
 button {

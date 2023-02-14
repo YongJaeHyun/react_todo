@@ -4,6 +4,7 @@ const UserInput = ({ value, setValue, addToDo }) => {
   return (
     <section id="userInput">
       <form
+        id="userInputForm"
         action="submit"
         onSubmit={(e) => {
           e.preventDefault();
