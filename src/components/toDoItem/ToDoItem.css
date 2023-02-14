@@ -51,7 +51,10 @@
 .done {
   opacity: 0.3;
   text-decoration: line-through;
-  background-color: transparent;
+}
+
+.edit {
+  background-color: whitesmoke;
 }
 
 button {

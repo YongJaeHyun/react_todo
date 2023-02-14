@@ -7,3 +7,7 @@
   color: black;
   font-size: 16px;
 }
+
+input {
+  background-color: transparent;
+}

@@ -21,7 +21,7 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
             onChange={(e) => setValue(e.target.value)}
             value={value}
             disabled={!isEdit || done} // 수정 모드가 아니거나 취소선 상태일 때는 input 비활성화
-            className={done ? "done" : ""}
+            className={isEdit ? "edit" : done ? "done " : ""}
           />
         </div>
         <div id="buttonBox">
@@ -33,9 +33,9 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
                 editToDo(id, value);
               }
             }}
-            onClick={() => setIsEdit((prev) => !prev)}
+            onClick={() => (!done ? setIsEdit((prev) => !prev) : undefined)}
           >
-            <span class="material-symbols-rounded">edit</span>
+            <span className="material-symbols-rounded">edit</span>
           </button>
           <button id="done" onClick={() => doneToDo(id)}>
             <span className="material-symbols-rounded">done</span>
