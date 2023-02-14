@@ -14,14 +14,26 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
     <li id="toDoBox">
       <form id="toDoForm" action="submit" onSubmit={editCurrentToDo}>
         <div id="contentBox">
-          <input
-            type="text"
-            id="content"
-            onChange={(e) => setValue(e.target.value)}
-            value={value}
-            disabled={!isEdit || done} // 수정 모드가 아니거나 취소선 상태일 때는 input 비활성화
-            className={isEdit ? "edit" : done ? "done " : ""}
-          />
+          {isEdit ? (
+            <input
+              type="text"
+              id="editInput"
+              onChange={(e) => setValue(e.target.value)}
+              value={value}
+              className={`edit ${done ? "done " : ""}`}
+            />
+          ) : (
+            <textarea
+              id="content"
+              cols="30"
+              rows={Math.ceil(content.length / 16)}
+              maxlength="30"
+              className={`box ${done ? "done " : ""}`}
+              disabled
+            >
+              {value}
+            </textarea>
+          )}
         </div>
         <div id="buttonBox">
           <button
