@@ -10,6 +10,16 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
     editToDo(id, value);
   };
 
+  const doneCurrentToDo = () => {
+    if (!isEdit) {
+      doneToDo(id);
+    }
+  };
+
+  const deleteCurrentToDo = () => {
+    deleteToDo(id);
+  };
+
   return (
     <li id="toDoBox">
       <form id="toDoForm" action="submit" onSubmit={editCurrentToDo}>
@@ -20,7 +30,7 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
               id="editInput"
               onChange={(e) => setValue(e.target.value)}
               value={value}
-              className={`edit ${done ? "done " : ""}`}
+              className="edit"
             />
           ) : (
             <textarea
@@ -47,10 +57,10 @@ const ToDoItem = ({ id, content, done, deleteToDo, doneToDo, editToDo }) => {
           >
             <span className="material-symbols-rounded">edit</span>
           </button>
-          <button id="done" onClick={() => doneToDo(id)}>
+          <button id="done" onClick={doneCurrentToDo}>
             <span className="material-symbols-rounded">done</span>
           </button>
-          <button id="delete" onClick={() => deleteToDo(id)}>
+          <button id="delete" onClick={deleteCurrentToDo}>
             <span className="material-symbols-rounded">delete</span>
           </button>
         </div>
